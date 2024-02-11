@@ -9,6 +9,16 @@ export const counterReducer = createReducer(
   on(decrement, (state, action) => state - action.value)
 );
 
-// export function counterReducerOld(state = initialState) {
-//   return state;
-// }
+// This old aproach is actually what createReducer is doing under the hood
+/* export function counterReducerOld(
+  state = initialState,
+  action: CounterActions | Action
+) {
+  if (action.type === INCREMENT) {
+    return state + (action as IncrementAction).value;
+  }
+  if (action.type === DECREMENT) {
+    return state - (action as DecrementAction).value;
+  }
+  return state;
+} */
