@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { decrement, increment } from '../store/counter.actions';
 
@@ -9,7 +9,7 @@ import { decrement, increment } from '../store/counter.actions';
   standalone: true,
 })
 export class CounterControlsComponent {
-  constructor(private store: Store) {}
+  private store: Store = inject(Store);
 
   increment() {
     this.store.dispatch(increment({ value: 2 })); // new way
